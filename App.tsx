@@ -1,8 +1,5 @@
 
 import { useState, useEffect, useRef } from "react";
-import SearchPage from "./imports/SearchPage";
-import WebsitePage from "./imports/WebsitePage";
-import CustomerSignInPage from "./imports/CustomerSignInPage";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import {
   Card,
@@ -44,11 +41,8 @@ const emailVerificationImage = "/assets/customer Verification page  step 3.jpg";
 const registrationCompletedImage = "/assets/Customer Successful page step 4.jpg";
 
 // Import the CFS service provider images from public/assets
-const cfsServiceProviderImage = "/assets/Customer CFS(Service Request) page.png";
-const requestPricingImage = "/assets/Customer CFS(Pricing Request) page.png";
 
 // Import the website main page image
-const websiteMainPageImage = "/assets/website main page.jpg";
 
 // Import the website page image
 const websitePageImage = "/assets/website page.jpg";
@@ -85,10 +79,14 @@ const newCFSOrderImage = "/assets/newCFSOrder.jpg";
 const cfsPricingRequestsImage = "/assets/Customer CFS(Pricing Request) page.png";
 
 // Import the new service request page image
-const newServiceRequestImage = "/assets/";
+const newServiceRequestImage = "/assets/public/assets/newServiceRequest.jpg";
 
 // Import the Google search page image
 const googleSearchPageImage = "/assets/Search Page.jpg";
+
+
+// CFS Services (CHA Access) grid screenshot
+const cfsServicesCHAImage = "/assets/cfs_services_cha.png";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -2590,6 +2588,8 @@ export default function App() {
             </CardContent>
           </Card>
         </section>
+
+       
       </main>
 
       {/* Footer */}
