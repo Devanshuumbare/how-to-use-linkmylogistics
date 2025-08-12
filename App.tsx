@@ -79,7 +79,7 @@ const newCFSOrderImage = "/assets/newCFSOrder.jpg";
 const cfsPricingRequestsImage = "/assets/Customer CFS(Pricing Request) page.png";
 
 // Import the new service request page image
-const newServiceRequestImage = "/assets/public/assets/newServiceRequest.jpg";
+const newServiceRequestImage = "/assets/newServiceRequest.jpg";
 
 // Import the Google search page image
 const googleSearchPageImage = "/assets/Search Page.jpg";
@@ -87,6 +87,9 @@ const googleSearchPageImage = "/assets/Search Page.jpg";
 
 // CFS Services (CHA Access) grid screenshot
 const cfsServicesCHAImage = "/assets/cfs_services_cha.png";
+
+// Import the track & trace image
+const trackTraceImage ="public/assets/Customer CFS (Track & Trace) page copy.png";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -122,7 +125,8 @@ export default function App() {
     { id: "cfs-orders", title: "CHA CFS Services guide", description: "Complete guide for managing CFS orders and services" },
     { id: "new-cfs-order", title: "Creating New CFS Order", description: "Step-by-step guide for creating and submitting new CFS orders" },
     { id: "cfs-pricing-requests", title: "CFS Pricing Requests Guide", description: "Complete guide for managing and tracking CFS pricing requests" },
-    { id: "new-service-request", title: "How to Create a New Service Request", description: "Submit additional services linked to existing orders efficiently" }
+    { id: "new-service-request", title: "How to Create a New Service Request", description: "Submit additional services linked to existing orders efficiently" },
+    { id: "track-trace", title: "Track & Trace CFS Services", description: "Real-time container status and milestones tracking" }
   ];
 
   const scrollToStep = (stepId: string) => {
@@ -2257,7 +2261,7 @@ export default function App() {
                       {/* Step-by-Step Guide */}
                       <div className="space-y-6">
 
-                        {/* Step 1: Navigate to New Request */}
+                        {/* Step 1: Navigate to New Request */  }
                         <div className="border-l-4 border-blue-500 pl-6">
                           <h4 className="text-lg font-semibold text-blue-800 mb-3">
                             🧭 Step 1: Navigate to New Request
@@ -2402,104 +2406,6 @@ export default function App() {
                         </div>
 
                       </div>
-
-                      {/* Key Benefits */}
-                      <div className="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-lg border border-indigo-200">
-                        <h4 className="text-lg font-semibold text-indigo-800 mb-4 flex items-center">
-                          <span className="bg-indigo-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 text-sm">✨</span>
-                          Key Benefits
-                        </h4>
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div className="flex items-start space-x-3">
-                            <span className="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">🎯</span>
-                            <div>
-                              <p className="font-medium text-indigo-800">Efficient Processing</p>
-                              <p className="text-indigo-700 text-sm">Streamlined workflow for operations team</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start space-x-3">
-                            <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">🔗</span>
-                            <div>
-                              <p className="font-medium text-indigo-800">Order Linkage</p>
-                              <p className="text-indigo-700 text-sm">Directly linked to existing orders</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start space-x-3">
-                            <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">📋</span>
-                            <div>
-                              <p className="font-medium text-indigo-800">Status Tracking</p>
-                              <p className="text-indigo-700 text-sm">Real-time request status updates</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start space-x-3">
-                            <span className="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">📎</span>
-                            <div>
-                              <p className="font-medium text-indigo-800">Document Support</p>
-                              <p className="text-indigo-700 text-sm">Upload supporting files easily</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Additional Features */}
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <Card className="border-2 border-gray-200">
-                  <CardHeader className="bg-gray-50">
-                    <CardTitle className="flex items-center text-gray-800">
-                      <Layout className="w-6 h-6 mr-3" />
-                      🔁 Access Dashboard Anytime
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <div className="space-y-4">
-                      <p className="font-medium text-gray-900">
-                        Click on the Dashboard button
-                        (top-right) to:
-                      </p>
-                      <div className="space-y-2">
-                        <div className="bg-gray-50 p-3 rounded-lg">
-                          <p className="text-gray-700">
-                            • Manage all service requests
-                          </p>
-                        </div>
-                        <div className="bg-gray-50 p-3 rounded-lg">
-                          <p className="text-gray-700">
-                            • View quotes, approvals, and
-                            messages
-                          </p>
-                        </div>
-                        <div className="bg-gray-50 p-3 rounded-lg">
-                          <p className="text-gray-700">
-                            • Track ongoing logistics operations
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-2 border-blue-200">
-                  <CardHeader className="bg-blue-50">
-                    <CardTitle className="flex items-center text-blue-800">
-                      <HelpCircle className="w-6 h-6 mr-3" />
-                      💬 Need Help?
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <div className="space-y-4">
-                      <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg text-center">
-                        <MessageCircle className="w-12 h-12 mx-auto mb-3 text-blue-600" />
-                        <p className="text-blue-800 font-medium">
-                          Use the live chat popup in the
-                          bottom-right corner for assistance
-                          anytime.
-                        </p>
-                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -2507,10 +2413,63 @@ export default function App() {
             </CardContent>
           </Card>
         </section>
+           
+      {/* Track & Trace – CFS Services */}
+              <Separator className="my-12" />
+              <div id="track-trace" className="mb-12">
+                <Card className="border-2 border-teal-200">
+                  <CardHeader className="bg-teal-50">
+                    <CardTitle className="flex items-center text-teal-800">
+                      <span className="bg-teal-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 font-bold">T</span>
+                      🚚 Track & Trace – CFS Services
+                    </CardTitle>
+                    <p className="text-teal-700 mt-2">
+                      This feature allows customers to track the status and progress of their shipping containers in real time.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <div className="mb-8">
+                      <div className="h-[670px] w-[] bg-gray-100 rounded-lg overflow-hidden shadow-inner">
+                        <ImageWithFallback
+                          src={trackTraceImage}
+                          alt="Track & Trace - Container Status Tracking Interface"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <p className="text-center text-gray-600 mt-2 text-sm">
+                        <strong>Feature Location:</strong> Sidebar → <strong>CFS</strong> → <strong>Track & Trace</strong>
+                      </p>
+                    </div>
 
-        <Separator className="my-12" />
+                    <div className="space-y-6">
+                      <div className="border-l-4 border-blue-500 pl-6">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">1. Accessing the Feature</h4>
+                        <p className="text-gray-700">From the sidebar menu, go to <strong>CFS → Track & Trace</strong>.</p>
+                      </div>
+                      <div className="border-l-4 border-indigo-500 pl-6">
+                        <h4 className="text-lg font-semibold text-indigo-800 mb-3">2. Entering Container Details</h4>
+                        <ul className="list-disc list-inside text-gray-700 ml-2">
+                          <li>Enter the <strong>Container Number</strong> (e.g., CON-93590729951) and <strong>Order ID</strong>.</li>
+                          <li>Click <strong>Track Status</strong> to fetch the latest update.</li>
+                        </ul>
+                      </div>
+                      <div className="border-l-4 border-purple-500 pl-6">
+                        <h4 className="text-lg font-semibold text-purple-800 mb-3">3. Viewing Order Details</h4>
+                        <p className="text-gray-700">
+                          See shipment information like <strong>Order ID</strong>, <strong>BL No.</strong>, <strong>CFS Facility</strong>, <strong>Consignee Name</strong>, <strong>IGM No.</strong>, <strong>Item No.</strong>, <strong>Current Movement Status</strong>, and <strong>CHA Name</strong>.
+                        </p>
+                      </div>
+                      <div className="border-l-4 border-green-500 pl-6">
+                        <h4 className="text-lg font-semibold text-green-800 mb-3">4. Shipment Progress</h4>
+                        <p className="text-gray-700">Track milestones like discharge, release dates, and other key movement updates.</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+      </main>
 
-        {/* Additional Features */}
+       {/* Additional Features */}
         <section className="mb-16">
           <Card>
             <CardHeader>
@@ -2588,9 +2547,6 @@ export default function App() {
             </CardContent>
           </Card>
         </section>
-
-       
-      </main>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 mt-16">
