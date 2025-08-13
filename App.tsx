@@ -31,8 +31,6 @@ import {
   DollarSign,
   BarChart3,
   Eye,
-  Layout,
-  HelpCircle,
 } from "lucide-react";
 
 // Import the account creation images from public/assets
@@ -81,15 +79,27 @@ const cfsPricingRequestsImage = "/assets/Customer CFS(Pricing Request) page.png"
 // Import the new service request page image
 const newServiceRequestImage = "/assets/newServiceRequest.jpg";
 
-// Import the Google search page image
+// Import the Google search page image 
 const googleSearchPageImage = "/assets/Search Page.jpg";
 
 
+
+
 // CFS Services (CHA Access) grid screenshot
-const cfsServicesCHAImage = "/assets/cfs_services_cha.png";
 
 // Import the track & trace image
-const trackTraceImage ="public/assets/Customer CFS (Track & Trace) page copy.png";
+const trackTraceImage ="public/assets/Customer CFS (Track & Trace) page.jpg";
+const eirCopyPageImage = "/assets/Customer CFS (EIR COPY Service New request form) page.jpg";
+const eirCopyNewRequestImage = "/assets/Customer CFS (EIR COPY Service) page.jpg";
+
+//Import the proforma invoice image
+const Proformainvoiceimage ="/assets/Customer CFS (Proforma Invoice ) page.jpg";
+
+//Import the priority movement image
+const prioritymovementImage ="public/assets/Customer CFS ( Priority Movement ) page.jpg";
+
+//Import the weightment slip image
+const weightmentslipImage ="public/assets/Customer CFS ( Weighment Slip ) page.jpg";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -126,7 +136,11 @@ export default function App() {
     { id: "new-cfs-order", title: "Creating New CFS Order", description: "Step-by-step guide for creating and submitting new CFS orders" },
     { id: "cfs-pricing-requests", title: "CFS Pricing Requests Guide", description: "Complete guide for managing and tracking CFS pricing requests" },
     { id: "new-service-request", title: "How to Create a New Service Request", description: "Submit additional services linked to existing orders efficiently" },
-    { id: "track-trace", title: "Track & Trace CFS Services", description: "Real-time container status and milestones tracking" }
+    { id: "track-trace", title: "Track & Trace CFS Services", description: "Real-time container status and milestones tracking" },
+    { id: "eir-copy", title: "How to Request an EIR Copy – CFS Services", description: "Request a digital copy of the Equipment Interchange Receipt (EIR)" },
+    { id: "proforma-invoice", title: "Proforma Invoice - CFS Service", description: "Request and manage proforma invoices quickly with status tracking" },
+    { id: "priority-movement", title: "Priority Movement – CFS Services", description: "Submit urgent cargo movement requests and track their status efficiently" },
+      { id: "weighment-slip", title: "Weighment Slip Requests – CFS Services", description: "Request official weighment slips and track progress" }
   ];
 
   const scrollToStep = (stepId: string) => {
@@ -2412,16 +2426,141 @@ export default function App() {
               </div>
             </CardContent>
           </Card>
-        </section>
-           
-      {/* Track & Trace – CFS Services */}
+        </section>             
+             
+             
+              {/* EIR Copy Request – CFS Services */}
+      <Separator className="my-12" />
+              <div id="eir-copy" className="mb-12">
+                <Card className="border-2 border-cyan-200">
+                  <CardHeader className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white">
+                    <CardTitle className="flex items-center text-white">
+                      <span className="bg-white/20 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 font-bold">E</span>
+                      How to Request an EIR Copy CFS Services
+                    </CardTitle>
+                    <p className="text-blue-100 mt-2">
+                      The EIR Copy feature lets customers request a digital copy of the Equipment Interchange Receipt for their containers, directly from the platform.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <div className="mb-8">
+                      <div className="h-[700px] w-auto bg-gray-100 rounded-lg overflow-hidden shadow-inner">
+                        <ImageWithFallback
+                          src={eirCopyNewRequestImage}
+                          alt="EIR Copy Request Page Interface"
+                          className="w-auto h- object-cover"
+                        />
+                      </div>
+                      <p className="text-center text-gray-600 mt-2 text-sm">
+                        <strong>Feature Location:</strong> Sidebar → <strong>CFS</strong> → <strong>EIR Copy</strong>
+                      </p>
+                    </div>
+                    <div className="space-y-8">
+                      <div className="border-l-4 border-blue-500 pl-6">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">Step 1 – Open EIR Copy Page</h4>
+                        <div className="bg-blue-50 p-4 rounded-lg">
+                          <p className="text-blue-800">
+                            From the <strong>left sidebar menu</strong>, go to: <span className="font-mono bg-white px-2 py-1 rounded border ml-1">CFS → EIR Copy</span>
+                          </p>
+                          <p className="text-blue-800 mt-3 font-medium">Top section shows a status summary:</p>
+                          <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <span className="inline-flex items-center justify-center rounded-full bg-green-100 text-green-800 px-3 py-1 text-sm font-medium">✅ Approved</span>
+                            <span className="inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-800 px-3 py-1 text-sm font-medium">⏳ Pending</span>
+                            <span className="inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium">🔄 In Progress</span>
+                            <span className="inline-flex items-center justify-center rounded-full bg-red-100 text-red-800 px-3 py-1 text-sm font-medium">❌ Rejected</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="border-l-4 border-indigo-500 pl-6">
+                        <h4 className="text-lg font-semibold text-indigo-800 mb-3">Step 2 – View All Past Requests</h4>
+                        <div className="bg-indigo-50 p-4 rounded-lg">
+                          <p className="text-indigo-800 mb-3">Below the summary is a table listing all past EIR Copy requests with details like:</p>
+                          <div className="grid md:grid-cols-2 gap-2 text-sm">
+                            <span className="bg-white px-3 py-2 rounded border">Request ID</span>
+                            <span className="bg-white px-3 py-2 rounded border">Date & Time</span>
+                            <span className="bg-white px-3 py-2 rounded border">Created By</span>
+                            <span className="bg-white px-3 py-2 rounded border">Order ID</span>
+                            <span className="bg-white px-3 py-2 rounded border">Remarks</span>
+                            <span className="bg-white px-3 py-2 rounded border">Reason</span>
+                            <span className="bg-white px-3 py-2 rounded border">Service Type</span>
+                            <span className="bg-white px-3 py-2 rounded border">Uploaded Files</span>
+                            <span className="bg-white px-3 py-2 rounded border">Status</span>
+                            <span className="bg-white px-3 py-2 rounded border">Actions</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="border-l-4 border-green-500 pl-6">
+                        <h4 className="text-lg font-semibold text-green-800 mb-3">Step 3 – Create a New Request</h4>
+                        <div className="h-[700px] w-auto bg-gray-100 rounded-lg overflow-hidden shadow-inner">
+                        <ImageWithFallback
+                          src={eirCopyPageImage}
+                          alt="EIR Copy Request Page Interface"
+                          className="w-auto h- object-cover"
+                        />
+                        </div>
+                        <div className="bg-green-50 p-4 rounded-lg">
+                          <div className="flex items-center justify-between">
+                            <span className="text-green-800">Click the <strong>New Request</strong> button (top right).</span>
+                            <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">New Request</Button>
+                          </div>
+                          <div className="mt-4 space-y-3">
+                            <div className="flex items-start p-3 bg-white rounded border">
+                              <FileText className="w-5 h-5 mr-3 text-green-600" />
+                              <div>
+                                <p className="font-medium text-green-900">1. Order ID</p>
+                                <p className="text-green-700 text-sm">Container-related Order ID for which you want the EIR copy</p>
+                              </div>
+                            </div>
+                            <div className="flex items-start p-3 bg-white rounded border">
+                              <MessageCircle className="w-5 h-5 mr-3 text-green-600" />
+                              <div>
+                                <p className="font-medium text-green-900">2. Remarks</p>
+                                <p className="text-green-700 text-sm">Optional notes or urgent instructions (e.g., “Need urgently”)</p>
+                              </div>
+                            </div>
+                            <div className="flex items-start p-3 bg-white rounded border">
+                              <Upload className="w-5 h-5 mr-3 text-green-600" />
+                              <div>
+                                <p className="font-medium text-green-900">3. Upload Documents</p>
+                                <p className="text-green-700 text-sm">Attach supporting files if required</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="mt-4">
+                            <Button className="w-full sm:w-auto">Request</Button>
+                          </div>
+                        </div>≈
+                      </div>
+
+                      <div className="border-l-4 border-emerald-500 pl-6">
+                        <h4 className="text-lg font-semibold text-emerald-800 mb-3">Step 4 – Track Your Request</h4>
+                        <div className="bg-emerald-50 p-4 rounded-lg">
+                          <p className="text-emerald-800">
+                            Once submitted, the request will appear in the table with its current status. Statuses automatically update as your request progresses.
+                          </p>
+                          <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                            <span className="bg-green-100 text-green-800 px-2 py-1 rounded inline-flex items-center justify-center">✓ Accepted</span>
+                            <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded inline-flex items-center justify-center">⏳ Pending</span>
+                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded inline-flex items-center justify-center">🔄 In Progress</span>
+                            <span className="bg-red-100 text-red-800 px-2 py-1 rounded inline-flex items-center justify-center">✗ Rejected</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+               {/* Track & Trace – CFS Services */}
               <Separator className="my-12" />
               <div id="track-trace" className="mb-12">
                 <Card className="border-2 border-teal-200">
                   <CardHeader className="bg-teal-50">
                     <CardTitle className="flex items-center text-teal-800">
                       <span className="bg-teal-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 font-bold">T</span>
-                      🚚 Track & Trace – CFS Services
+                      🚚 Track & Trace CFS Services
                     </CardTitle>
                     <p className="text-teal-700 mt-2">
                       This feature allows customers to track the status and progress of their shipping containers in real time.
@@ -2467,7 +2606,629 @@ export default function App() {
                   </CardContent>
                 </Card>
               </div>
+
+              {/* Proforma Invoice – CFS Services */}
+              <Separator className="my-12" />
+              <div id="proforma-invoice" className="mb-12"></div>
+                <Card className="border-2 border-emerald-200">
+                  <CardHeader className="bg-gradient-to-r from-emerald-600 to-green-600 text-white">
+                    <CardTitle className="flex items-center text-white">
+                      <span className="bg-white/20 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 font-bold">P</span>
+                      How to Use Proforma Invoice – CFS Services
+                    </CardTitle>
+                    <p className="text-emerald-100 mt-2">
+                      The Proforma Invoice feature allows customers and CHA to request and manage proforma invoices quickly, track their status, and view all past requests.
+                    </p>
+                     <ImageWithFallback
+                          src={Proformainvoiceimage}
+                          alt="Proforma Invoice Request page"
+                          className="w-full h-full object-cover"
+                        />
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <div className="space-y-8">
+                      
+                      {/* Step 1 – Open Proforma Invoice Page */}
+                      <div className="border-l-4 border-emerald-500 pl-6">
+                        <h4 className="text-lg font-semibold text-emerald-800 mb-3">
+                          📂 Step 1 – Open Proforma Invoice Page
+                        </h4>
+                        <div className="bg-emerald-50 p-4 rounded-lg">
+                          <p className="text-emerald-800 mb-2">
+                            From the <strong>left sidebar menu</strong>, go to:
+                          </p>
+                          <div className="bg-white p-3 rounded border-l-4 border-emerald-400">
+                            <p className="font-mono text-emerald-800">
+                              📦 <strong>CFS</strong> → <strong>Proforma Invoice</strong>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                      {/* Step 2 – View Request Summary */}
+                      <div className="border-l-4 border-blue-500 pl-6">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">
+                          📊 Step 2 – View Request Summary
+                        </h4>
+                        <div className="bg-blue-50 p-4 rounded-lg">
+                          <p className="text-blue-800 mb-3">
+                            At the top, you'll see a <strong>status summary</strong> with the count of requests in:
+                          </p>
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div className="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-medium">
+                              ✅ Approved
+                            </div>
+                            <div className="bg-yellow-100 text-yellow-800 px-3 py-2 rounded text-center font-medium">
+                              ⏳ Pending
+                            </div>
+                            <div className="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-medium">
+                              🔄 In Progress
+                            </div>
+                            <div className="bg-red-100 text-red-800 px-3 py-2 rounded text-center font-medium">
+                              ❌ Rejected
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Step 3 – Create a New Request */}
+                      <div className="border-l-4 border-purple-500 pl-6">
+                        <h4 className="text-lg font-semibold text-purple-800 mb-3">
+                          ➕ Step 3 – Create a New Request
+                        </h4>
+                        <div className="bg-purple-50 p-4 rounded-lg">
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                              <span className="text-purple-800">Click the <strong>New Request</strong> button.</span>
+                              <Button size="sm" className="bg-purple-600 hover:bg-purple-700 text-white">New Request</Button>
+                            </div>
+                            
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-purple-400">
+                              <h5 className="font-semibold text-purple-800 mb-3">Fill in the required details:</h5>
+                              <div className="space-y-3">
+                                <div className="flex items-start p-3 bg-purple-50 rounded border">
+                                  <FileText className="w-5 h-5 mr-3 text-purple-600 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium text-purple-900">Order ID</p>
+                                    <p className="text-purple-700 text-sm">Enter the Order ID for which you need the proforma invoice</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start p-3 bg-purple-50 rounded border">
+                                  <MessageCircle className="w-5 h-5 mr-3 text-purple-600 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium text-purple-900">Remarks</p>
+                                    <p className="text-purple-700 text-sm">Add any special notes or instructions</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start p-3 bg-purple-50 rounded border">
+                                  <Building2 className="w-5 h-5 mr-3 text-purple-600 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium text-purple-900">Reason</p>
+                                    <p className="text-purple-700 text-sm">Specify the reason for requesting the proforma invoice</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start p-3 bg-purple-50 rounded border">
+                                  <Upload className="w-5 h-5 mr-3 text-purple-600 mt-0.5" />
+                                  <div>
+                                    <p className="font-medium text-purple-900">Upload Supporting Files</p>
+                                    <p className="text-purple-700 text-sm">Attach any supporting documents (optional)</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="bg-white p-3 rounded border-l-4 border-green-400">
+                              <p className="text-green-800">
+                                <strong>✅ Result:</strong> Your request will appear in the list with a <strong>Pending</strong> status.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Step 4 – Manage & Track Requests */}
+                      <div className="border-l-4 border-orange-500 pl-6">
+                        <h4 className="text-lg font-semibold text-orange-800 mb-3">
+                          📋 Step 4 – Manage & Track Requests
+                        </h4>
+                        <div className="bg-orange-50 p-4 rounded-lg">
+                          <p className="text-orange-800 mb-4">
+                            Below the summary, you'll find a <strong>detailed table</strong> showing:
+                          </p>
+                          
+                          <div className="grid md:grid-cols-2 gap-4 mb-4">
+                            <div className="space-y-2">
+                              <div className="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <p className="font-medium text-orange-900">📋 Request ID, Date & Time</p>
+                                <p className="text-orange-700 text-sm">Unique identifier and submission timestamp</p>
+                              </div>
+                              <div className="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <p className="font-medium text-orange-900">🆔 Order ID</p>
+                                <p className="text-orange-700 text-sm">Order linked to the request</p>
+                              </div>
+                              <div className="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <p className="font-medium text-orange-900">💬 Customer Remarks & Reason</p>
+                                <p className="text-orange-700 text-sm">Your notes and justification for the request</p>
+                              </div>
+                            </div>
+                            <div className="space-y-2">
+                              <div className="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <p className="font-medium text-orange-900">📎 Uploaded Files</p>
+                                <p className="text-orange-700 text-sm">Supporting documents (if any)</p>
+                              </div>
+                              <div className="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <p className="font-medium text-orange-900">📊 Status</p>
+                                <p className="text-orange-700 text-sm">Approved, In Progress, Pending, Rejected</p>
+                              </div>
+                              <div className="bg-white p-3 rounded border-l-4 border-orange-400">
+                                <p className="font-medium text-orange-900">🔍 Search Bar</p>
+                                <p className="text-orange-700 text-sm">Find specific requests quickly</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="bg-white p-4 rounded-lg border border-orange-200">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <Search className="w-5 h-5 text-orange-600" />
+                              <p className="font-medium text-orange-900">Quick Search</p>
+                            </div>
+                            <p className="text-orange-700 text-sm">
+                              Use the <strong>search bar</strong> to find specific requests by Request ID, Order ID, or other details.
+                            </p>
+                          </div>
+                        </div>
+                      </div>              
+                  </CardContent>
+                </Card>
+              {/* Priority Movement – CFS Services */}
+              <Separator className="my-12" />
+              <div id="priority-movement" className="mb-12">
+                <Card className="border-2 border-red-200">
+                  <CardHeader className="bg-gradient-to-r from-red-600 to-pink-600 text-white">
+                    <CardTitle className="flex items-center text-white">
+                      <span className="bg-white/20 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 font-bold">⚡</span>
+                      Priority Movement – CFS Services User Guide
+                    </CardTitle>
+                    <p className="text-red-100 mt-2">
+                      The Priority Movements feature allows CHAs (Customs House Agents) to submit urgent cargo movement requests, track their status, and manage them efficiently through the CFS portal.
+                    </p>
+
+                     <ImageWithFallback
+                          src={prioritymovementImage}
+                          alt="Priority Movement Request Interface"
+                          className="w-full h-full object-cover"
+                        />
+                    
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <div className="space-y-8">
+                      
+                      {/* Accessing the Priority Movements Page */}
+                      <div className="border-l-4 border-red-500 pl-6">
+                        <h4 className="text-lg font-semibold text-red-800 mb-3">
+                          🚀 Accessing the Priority Movements Page
+                        </h4>
+                        <div className="bg-red-50 p-4 rounded-lg">
+                          <p className="text-red-800 mb-2">
+                            From the <strong>left-hand sidebar menu</strong>, navigate to:
+                          </p>
+                          <div className="bg-white p-3 rounded border-l-4 border-red-400">
+                            <p className="font-mono text-red-800">
+                              📦 <strong>CFS</strong> → <strong>Priority Movements</strong>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Understanding the Dashboard Layout */}
+                      <div className="border-l-4 border-blue-500 pl-6">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">
+                          📊 Understanding the Dashboard Layout
+                        </h4>
+                        <div className="bg-blue-50 p-4 rounded-lg">
+                          <div className="space-y-4">
+                            
+                            {/* Quick Status Summary */}
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-blue-400">
+                              <h5 className="font-semibold text-blue-800 mb-3">📈 Quick Status Summary (Top Section)</h5>
+                              <p className="text-blue-700 mb-3">Displays the count of requests in each status:</p>
+                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div className="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-medium">
+                                  ✅ Approved
+                                  <p className="text-xs mt-1">Requests that have been processed and confirmed</p>
+                                </div>
+                                <div className="bg-yellow-100 text-yellow-800 px-3 py-2 rounded text-center font-medium">
+                                  ⏳ Pending
+                                  <p className="text-xs mt-1">Requests awaiting review/approval</p>
+                                </div>
+                                <div className="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-medium">
+                                  🔄 In Progress
+                                  <p className="text-xs mt-1">Requests currently being actioned</p>
+                                </div>
+                                <div className="bg-red-100 text-red-800 px-3 py-2 rounded text-center font-medium">
+                                  ❌ Rejected
+                                  <p className="text-xs mt-1">Requests that have been declined</p>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* New Request Button */}
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-green-400">
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <h5 className="font-semibold text-green-800 mb-2">➕ New Request Button</h5>
+                                  <p className="text-green-700 text-sm">Located at the top-right of the page. Used to submit a new Priority Movement request.</p>
+                                </div>
+                                <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">New Request</Button>
+                              </div>
+                            </div>
+
+                            {/* Requests Table */}
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-purple-400">
+                              <h5 className="font-semibold text-purple-800 mb-3">📋 Requests Table (Bottom Section)</h5>
+                              <p className="text-purple-700 mb-3">Shows all past and current requests with details:</p>
+                              <div className="grid md:grid-cols-2 gap-3 text-sm">
+                                <div className="space-y-2">
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>📋 Request ID</strong> – Unique system-generated ID for tracking
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>📅 Date & Time</strong> – When the request was submitted
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>👤 Created By</strong> – The logged-in user who submitted the request
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>🆔 Order ID</strong> – Related order reference number
+                                  </div>
+                                </div>
+                                <div className="space-y-2">
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>💬 Customer Remarks</strong> – Any notes entered by the requester
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>📝 Reason</strong> – Purpose for requesting priority handling
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>🔧 Service Type</strong> – Always listed as "Priority Movements"
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>📎 Uploaded Files</strong> – Number and type of files uploaded
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>📊 Status</strong> – Current progress of the request
+                                  </div>
+                                  <div className="bg-purple-50 p-2 rounded">
+                                    <strong>⚡ Actions</strong> – Options to view or manage the request
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* How to Create a New Priority Movement Request */}
+                      <div className="border-l-4 border-green-500 pl-6">
+                        <h4 className="text-lg font-semibold text-green-800 mb-3">
+                          ➕ How to Create a New Priority Movement Request
+                        </h4>
+                        <div className="bg-green-50 p-4 rounded-lg">
+                          <div className="space-y-4">
+                            
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-green-400">
+                              <h5 className="font-semibold text-green-800 mb-3">📝 Step-by-Step Process:</h5>
+                              <div className="space-y-3">
+                                <div className="flex items-start p-3 bg-green-50 rounded border">
+                                  <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">1</span>
+                                  <div>
+                                    <p className="font-medium text-green-900">Click the New Request button</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start p-3 bg-green-50 rounded border">
+                                  <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">2</span>
+                                  <div>
+                                    <p className="font-medium text-green-900">Fill in the required fields:</p>
+                                    <ul className="text-green-700 text-sm mt-2 ml-4 space-y-1">
+                                      <li>• <strong>Order ID</strong> (mandatory)</li>
+                                      <li>• <strong>Customer Remarks</strong> (optional, for notes)</li>
+                                      <li>• <strong>Reason</strong> (mandatory – why priority is required)</li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div className="flex items-start p-3 bg-green-50 rounded border">
+                                  <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">3</span>
+                                  <div>
+                                    <p className="font-medium text-green-900">Upload supporting files (if needed)</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start p-3 bg-green-50 rounded border">
+                                  <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">4</span>
+                                  <div>
+                                    <p className="font-medium text-green-900">Submit the request</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start p-3 bg-green-50 rounded border">
+                                  <span className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">5</span>
+                                  <div>
+                                    <p className="font-medium text-green-900">Once submitted, the request will appear in the list with a <strong>Pending</strong> status until processed by the CFS team</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Tracking and Managing Requests */}
+                      <div className="border-l-4 border-orange-500 pl-6">
+                        <h4 className="text-lg font-semibold text-orange-800 mb-3">
+                          📈 Tracking and Managing Requests
+                        </h4>
+                        <div className="bg-orange-50 p-4 rounded-lg">
+                          <div className="space-y-4">
+                            
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-orange-400">
+                              <div className="flex items-center space-x-2 mb-3">
+                                <Search className="w-5 h-5 text-orange-600" />
+                                <h5 className="font-semibold text-orange-800">Search Functionality</h5>
+                              </div>
+                              <p className="text-orange-700 text-sm">
+                                Use the <strong>Search Bar</strong> above the table to quickly find specific requests by Request ID, Order ID, or Remarks.
+                              </p>
+                            </div>
+
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-blue-400">
+                              <div className="flex items-center space-x-2 mb-3">
+                                <Eye className="w-5 h-5 text-blue-600" />
+                                <h5 className="font-semibold text-blue-800">Status Monitoring</h5>
+                              </div>
+                              <p className="text-blue-700 text-sm mb-3">
+                                Monitor the <strong>Status</strong> column to see if your request is:
+                              </p>
+                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                                <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-center">✅ Approved</span>
+                                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-center">⏳ Pending</span>
+                                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-center">🔄 In Progress</span>
+                                <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-center">❌ Rejected</span>
+                              </div>
+                            </div>
+
+                            <div className="bg-white p-4 rounded-lg border-l-4 border-purple-400">
+                              <div className="flex items-center space-x-2 mb-3">
+                                <MessageCircle className="w-5 h-5 text-purple-600" />
+                                <h5 className="font-semibold text-purple-800">Actions Menu</h5>
+                              </div>
+                              <p className="text-purple-700 text-sm mb-3">
+                                Click the <strong>Actions menu</strong> (three dots) to:
+                              </p>
+                              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
+                                <div className="bg-purple-50 p-2 rounded text-center">
+                                  👁️ View request details
+                                </div>
+                                <div className="bg-purple-50 p-2 rounded text-center">
+                                  🗑️ Delete Request
+                                </div>
+                                <div className="bg-purple-50 p-2 rounded text-center">
+                                  📥 Download Zip
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Success Message */}
+                      <div className="bg-gradient-to-r from-green-100 to-emerald-100 border border-green-300 p-6 rounded-lg">
+                        <div className="flex items-center space-x-3 mb-3">
+                          <CheckCircle className="w-8 h-8 text-green-600" />
+                          <h4 className="font-bold text-green-900 text-lg">🎉 Priority Movement Request Complete!</h4>
+                        </div>
+                        <p className="text-green-800">
+                          You now know how to submit urgent cargo movement requests, track their progress, and manage them efficiently.
+                        </p>
+                      </div>
+
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Weighment Slip Requests – CFS Services */}
+              <Separator className="my-12" />
+              <div id="weighment-slip" className="mb-12">
+                <Card className="border-2 border-sky-200">
+                  <CardHeader className="bg-gradient-to-r from-sky-600 to-blue-600 text-white">
+                    <CardTitle className="flex items-center text-white">
+                      <span className="bg-white/20 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 font-bold">W</span>
+                      Weighment Slip Requests – CFS Services User Guide
+                    </CardTitle>
+                    <p className="text-blue-100 mt-2">
+                      The <strong>Weighment Slip</strong> feature allows CHAs (Customs House Agents) to request official weighment slips for cargo and track the progress of these requests to CFS.
+                    </p>
+                    <ImageWithFallback
+                          src={weightmentslipImage}
+                          alt="Priority Movement Request Interface"
+                          className="w-full h-full object-cover"
+                        />
+                    
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <div className="space-y-8">
+
+                      {/* Accessing the Weighment Slip Page */}
+                      <div className="border-l-4 border-sky-500 pl-6">
+                        <h4 className="text-lg font-semibold text-sky-800 mb-3">🧭 Accessing the Weighment Slip Page</h4>
+                        <div className="bg-sky-50 p-4 rounded-lg">
+                          <p className="text-sky-800 mb-2">From the <strong>left-hand sidebar menu</strong>, navigate to:</p>
+                          <div className="bg-white p-3 rounded border-l-4 border-sky-400">
+                            <p className="font-mono text-sky-800">📦 <strong>CFS</strong> → <strong>Weighment Slip</strong></p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Understanding the Dashboard Layout */}
+                      <div className="border-l-4 border-blue-500 pl-6">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">📊 Understanding the Dashboard Layout</h4>
+                        <div className="bg-blue-50 p-4 rounded-lg space-y-4">
+                          {/* Quick Status Summary */}
+                          <div className="bg-white p-4 rounded-lg border-l-4 border-blue-400">
+                            <h5 className="font-semibold text-blue-800 mb-2">📈 Quick Status Summary (Top Section)</h5>
+                            <p className="text-blue-700 mb-3">Displays a visual count of all requests by status:</p>
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                              <div className="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-medium">✅ Approved</div>
+                              <div className="bg-yellow-100 text-yellow-800 px-3 py-2 rounded text-center font-medium">⏳ Pending</div>
+                              <div className="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-medium">🔄 In Progress</div>
+                              <div className="bg-red-100 text-red-800 px-3 py-2 rounded text-center font-medium">❌ Rejected</div>
+                            </div>
+                          </div>
+
+                          {/* New Request Button */}
+                          <div className="bg-white p-4 rounded-lg border-l-4 border-green-400">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h5 className="font-semibold text-green-800 mb-1">➕ New Request Button</h5>
+                                <p className="text-green-700 text-sm">Found at the top-right. Use it to submit a fresh weighment slip request.</p>
+                              </div>
+                              <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">New Request</Button>
+                            </div>
+                          </div>
+
+                          {/* Search Bar */}
+                          <div className="bg-white p-4 rounded-lg border-l-4 border-indigo-400">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <Search className="w-5 h-5 text-indigo-600" />
+                              <h5 className="font-semibold text-indigo-800">🔎 Search Bar</h5>
+                            </div>
+                            <p className="text-indigo-700 text-sm">Quickly find a request using <strong>Order ID</strong> or other keywords.</p>
+                          </div>
+
+                          {/* Requests Table */}
+                          <div className="bg-white p-4 rounded-lg border-l-4 border-purple-400">
+                            <h5 className="font-semibold text-purple-800 mb-2">📋 Requests Table (Bottom Section)</h5>
+                            <p className="text-purple-700 mb-3">Lists all current and past requests with these details:</p>
+                            <div className="grid md:grid-cols-2 gap-3 text-sm">
+                              <div className="space-y-2">
+                                <div className="bg-purple-50 p-2 rounded"><strong>🆔 Request ID</strong> – Unique identifier for tracking</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>📅 Date & Time</strong> – When the request was created</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>👤 Created By</strong> – User who submitted the request</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>🧾 Order ID</strong> – Related order reference number</div>
+                              </div>
+                              <div className="space-y-2">
+                                <div className="bg-purple-50 p-2 rounded"><strong>💬 Customer Remarks</strong> – Additional notes from the requester</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>📝 Reason</strong> – Reason for requesting the weighment slip</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>🔧 Service Type</strong> – “Weighment Slip” for this feature</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>📎 Uploaded Files</strong> – Supporting documents attached (if any)</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>📊 Status</strong> – Current stage of the request</div>
+                                <div className="bg-purple-50 p-2 rounded"><strong>⚡ Actions</strong> – Options to view or manage the request</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* How to Create a New Weighment Slip Request */}
+                      <div className="border-l-4 border-emerald-500 pl-6">
+                        <h4 className="text-lg font-semibold text-emerald-800 mb-3">📝 How to Create a New Weighment Slip Request</h4>
+                        <div className="bg-emerald-50 p-4 rounded-lg space-y-3">
+                          <div className="flex items-start p-3 bg-white rounded border">
+                            <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">1</span>
+                            <p className="text-emerald-800">Click the <strong>New Request</strong> button.</p>
+                          </div>
+                          <div className="flex items-start p-3 bg-white rounded border">
+                            <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">2</span>
+                            <div className="flex-1">
+                              <p className="text-emerald-800 font-medium mb-2">Fill in the required fields:</p>
+                              <div className="grid md:grid-cols-2 gap-2 text-sm">
+                                <div className="flex items-start p-2 bg-emerald-50 rounded border">
+                                  <FileText className="w-4 h-4 mr-2 text-emerald-600 mt-0.5" />
+                                  <span><strong>Order ID</strong> (mandatory)</span>
+                                </div>
+                                <div className="flex items-start p-2 bg-emerald-50 rounded border">
+                                  <MessageCircle className="w-4 h-4 mr-2 text-emerald-600 mt-0.5" />
+                                  <span><strong>Customer Remarks</strong> (optional)</span>
+                                </div>
+                                <div className="flex items-start p-2 bg-emerald-50 rounded border">
+                                  <FileText className="w-4 h-4 mr-2 text-emerald-600 mt-0.5" />
+                                  <span><strong>Reason</strong> (mandatory)</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-start p-3 bg-white rounded border">
+                            <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">3</span>
+                            <div className="flex-1">
+                              <p className="text-emerald-800">Attach <strong>supporting files</strong> if necessary.</p>
+                              <div className="mt-2 flex items-center text-emerald-700 text-sm">
+                                <Upload className="w-4 h-4 mr-2" /> Optional file upload
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-start p-3 bg-white rounded border">
+                            <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">4</span>
+                            <p className="text-emerald-800">Submit the request.</p>
+                          </div>
+                          <div className="flex items-start p-3 bg-white rounded border">
+                            <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 text-sm font-bold">5</span>
+                            <p className="text-emerald-800">Your new request will appear in the table with a <strong>Pending</strong> status until processed.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Tracking and Managing Requests */}
+                      <div className="border-l-4 border-orange-500 pl-6">
+                        <h4 className="text-lg font-semibold text-orange-800 mb-3">📈 Tracking and Managing Requests</h4>
+                        <div className="bg-orange-50 p-4 rounded-lg space-y-4">
+                          <div className="bg-white p-4 rounded-lg border-l-4 border-orange-400">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <Search className="w-5 h-5 text-orange-600" />
+                              <h5 className="font-semibold text-orange-800">Search</h5>
+                            </div>
+                            <p className="text-orange-700 text-sm">Use the <strong>Search Bar</strong> to locate specific requests quickly.</p>
+                          </div>
+                          <div className="bg-white p-4 rounded-lg border-l-4 border-blue-400">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <Eye className="w-5 h-5 text-blue-600" />
+                              <h5 className="font-semibold text-blue-800">Status Monitoring</h5>
+                            </div>
+                            <p className="text-blue-700 text-sm">Check the <strong>Status</strong> column to know if your request is Approved, Pending, In Progress, or Rejected.</p>
+                          </div>
+                          <div className="bg-white p-4 rounded-lg border-l-4 border-purple-400">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <MessageCircle className="w-5 h-5 text-purple-600" />
+                              <h5 className="font-semibold text-purple-800">Actions Menu</h5>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
+                              <div className="bg-purple-50 p-2 rounded text-center">👁️ View Request Details</div>
+                              <div className="bg-purple-50 p-2 rounded text-center">🗑️ Delete Request</div>
+                              <div className="bg-purple-50 p-2 rounded text-center">📥 Download Zip</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-gradient-to-r from-green-100 to-emerald-100 border border-green-300 p-6 rounded-lg">
+                        <div className="flex items-center space-x-3 mb-3">
+                          <CheckCircle className="w-8 h-8 text-green-600" />
+                          <h4 className="font-bold text-green-900 text-lg">🎉 Weighment Slip Request – Complete!</h4>
+                        </div>
+                        <p className="text-green-800">
+                          You can now create, track, and manage Weighment Slip requests effortlessly.
+                        </p>
+                      </div>
+
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
       </main>
+
+
 
        {/* Additional Features */}
         <section className="mb-16">
@@ -2490,8 +3251,8 @@ export default function App() {
                     clock.
                   </p>
                 </div>
-                <div className="text-center p-6 bg-green-50 rounded-lg">
-                  <Search className="w-12 h-12 mx-auto mb-4 text-green-600" />
+                <div className="text-center p-6 bg-green-50 rounded-lg">  
+                  <Search className="w-12 h-12 mx-auto mb-4 text-green-600"/>
                   <h3 className="font-semibold mb-2">
                     Smart CFS Search
                   </h3>
